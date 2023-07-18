@@ -1,0 +1,12 @@
+C:\Dummy Projects\Northwind\NorthWind.Services\bin\Debug\net6.0\NorthWind.Services.deps.json
+C:\Dummy Projects\Northwind\NorthWind.Services\bin\Debug\net6.0\NorthWind.Services.dll
+C:\Dummy Projects\Northwind\NorthWind.Services\bin\Debug\net6.0\NorthWind.Services.pdb
+C:\Dummy Projects\Northwind\NorthWind.Services\obj\Debug\net6.0\NorthWind.Services.csproj.AssemblyReference.cache
+C:\Dummy Projects\Northwind\NorthWind.Services\obj\Debug\net6.0\NorthWind.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dummy Projects\Northwind\NorthWind.Services\obj\Debug\net6.0\NorthWind.Services.AssemblyInfoInputs.cache
+C:\Dummy Projects\Northwind\NorthWind.Services\obj\Debug\net6.0\NorthWind.Services.AssemblyInfo.cs
+C:\Dummy Projects\Northwind\NorthWind.Services\obj\Debug\net6.0\NorthWind.Services.csproj.CoreCompileInputs.cache
+C:\Dummy Projects\Northwind\NorthWind.Services\obj\Debug\net6.0\NorthWind.Services.dll
+C:\Dummy Projects\Northwind\NorthWind.Services\obj\Debug\net6.0\refint\NorthWind.Services.dll
+C:\Dummy Projects\Northwind\NorthWind.Services\obj\Debug\net6.0\NorthWind.Services.pdb
+C:\Dummy Projects\Northwind\NorthWind.Services\obj\Debug\net6.0\ref\NorthWind.Services.dll

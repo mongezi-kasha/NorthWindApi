@@ -1,0 +1,14 @@
+C:\Dummy Projects\Northwind\NorthWind.DAL\bin\Debug\net6.0\NorthWind.DAL.deps.json
+C:\Dummy Projects\Northwind\NorthWind.DAL\bin\Debug\net6.0\NorthWind.DAL.dll
+C:\Dummy Projects\Northwind\NorthWind.DAL\bin\Debug\net6.0\NorthWind.DAL.pdb
+C:\Dummy Projects\Northwind\NorthWind.DAL\obj\Debug\net6.0\NorthWind.DAL.csproj.AssemblyReference.cache
+C:\Dummy Projects\Northwind\NorthWind.DAL\obj\Debug\net6.0\NorthWind.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dummy Projects\Northwind\NorthWind.DAL\obj\Debug\net6.0\NorthWind.DAL.AssemblyInfoInputs.cache
+C:\Dummy Projects\Northwind\NorthWind.DAL\obj\Debug\net6.0\NorthWind.DAL.AssemblyInfo.cs
+C:\Dummy Projects\Northwind\NorthWind.DAL\obj\Debug\net6.0\NorthWind.DAL.csproj.CoreCompileInputs.cache
+C:\Dummy Projects\Northwind\NorthWind.DAL\obj\Debug\net6.0\NorthWind.DAL.dll
+C:\Dummy Projects\Northwind\NorthWind.DAL\obj\Debug\net6.0\refint\NorthWind.DAL.dll
+C:\Dummy Projects\Northwind\NorthWind.DAL\obj\Debug\net6.0\NorthWind.DAL.pdb
+C:\Dummy Projects\Northwind\NorthWind.DAL\obj\Debug\net6.0\ref\NorthWind.DAL.dll
+C:\Dummy Projects\Northwind\NorthWind.DAL\bin\Debug\net6.0\NorthWind.DAL.runtimeconfig.json
+C:\Dummy Projects\Northwind\NorthWind.DAL\obj\Debug\net6.0\NorthWind.DAL.genruntimeconfig.cache
