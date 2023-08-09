@@ -21,6 +21,9 @@ namespace Northwind
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<NorthWind.DAL.NorthWindContext>(o => o.UseSqlServer(dbConnection));
+            builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+            builder.Services.AddScoped<IInvoiceService, InvoiceService>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
 
             var app = builder.Build();
 
@@ -29,11 +32,7 @@ namespace Northwind
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-                builder.Services.AddScoped<IEmployeeService, DummyEmployeeService>();
-            }
-            else
-            {
-                builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+                //builder.Services.AddScoped<IEmployeeService, DummyEmployeeService>();
             }
             app.UseHttpsRedirection();
 

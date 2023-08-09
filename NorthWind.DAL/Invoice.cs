@@ -5,6 +5,7 @@ namespace NorthWind.DAL;
 
 public partial class Invoice
 {
+    public int invoiceId { get; set; }
     public string? ShipName { get; set; }
 
     public string? ShipAddress { get; set; }
