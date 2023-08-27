@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Northwind.Models.Invoices;
 using NorthWind.DAL;
 using NorthWind.Services;
 
@@ -46,6 +47,36 @@ namespace Northwind.Controllers
             };
 
             return Ok(resultmodel);
+        }
+
+        [HttpPut("update")]
+        public async Task<IActionResult> UpdateInvoice([FromBody] UpdateInvoiceRequest invoiceRequest)
+        {
+            var invoice = await _invoiceService.GetInvoice(invoiceRequest.InvoiceId);
+            if (invoice == null)
+            {
+                return NotFound();
+            }
+
+            invoice.ShipName = invoiceRequest.InvoiceName;
+
+            await _invoiceService.UpdateInvoice(invoice);
+
+            return Ok(invoice);
+        }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteInvoice([FromBody] DeleteInvoiceRequest deleteRequest)
+        {
+            var invoice = await _invoiceService.GetInvoice(deleteRequest.InvoiceId);
+            if (invoice == null)
+            {
+                return NotFound();
+            }
+
+            await _invoiceService.DeleteInvoice(invoice);
+
+            return Ok(invoice);
         }
     }
 }

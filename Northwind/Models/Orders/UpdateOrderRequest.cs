@@ -1,4 +1,4 @@
-﻿namespace Northwind.Models
+﻿namespace Northwind.Models.Order
 {
     public class UpdateOrderRequest
     {

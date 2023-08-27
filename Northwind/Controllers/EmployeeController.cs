@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using NorthWind.DAL;
 using Microsoft.EntityFrameworkCore;
 using NorthWind.Services;
+using Northwind.Models.Employees;
 
 namespace Northwind.Controllers
 {
@@ -27,9 +28,9 @@ namespace Northwind.Controllers
         }
 
         [HttpGet("{employeeId}")]
-        public async Task<IActionResult> GetEmployee([FromQuery] int EmployeeId)
+        public async Task<IActionResult> GetEmployee([FromQuery] string EmployeeId)
         {
-            var employee = await _dbContext.Employees.Where(x => x.EmployeeId == EmployeeId).FirstOrDefaultAsync();
+            var employee = await _dbContext.Employees.Where(x => x.EmployeeId == int.Parse(EmployeeId)).FirstOrDefaultAsync();
 
             return Ok(employee);
         }
@@ -48,6 +49,36 @@ namespace Northwind.Controllers
             };
 
             return Ok(resultModel);
+        }
+
+        [HttpPut("update")]
+        public async Task<IActionResult> UpdateEmployee([FromBody] UpdateEmployeeRequest employeeRequest)
+        {
+            var employee = await _employeeService.GetEmployee(employeeRequest.EmployeeId);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            employee.FirstName = employeeRequest.EmployeeName;
+
+            await _employeeService.UpdateEmployee(employee);
+
+            return Ok(employee);
+        }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteOrder([FromBody] DeleteEmployeeRequest oemployeeRequest)
+        {
+            var employee = await _employeeService.GetEmployee(oemployeeRequest.EmployeeId);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            await _employeeService.DeleteEmployee(employee);
+
+            return Ok(employee);
         }
     }
 }

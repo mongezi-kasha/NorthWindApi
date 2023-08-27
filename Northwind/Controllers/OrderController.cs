@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Models;
+using Northwind.Models.Order;
 using NorthWind.DAL;
 using NorthWind.Services;
 
@@ -59,10 +58,23 @@ namespace Northwind.Controllers
                 return NotFound();
             }
 
-            //order.OrderId = updateOrder.OrderId;
             order.ShipName = orderRequest.ShipName;
 
             await _orderService.UpdateOrder(order);
+
+            return Ok(order);
+        }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteOrder([FromBody] DeleteOrderRequest orderRequest)
+        {
+            var order = await _orderService.GetOrderById(orderRequest.OrderID);
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            await _orderService.DeleteOrder(order);
 
             return Ok(order);
         }

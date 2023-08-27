@@ -8,6 +8,7 @@ namespace NorthWind.Services
         Task<List<Order>> GetAllOrders();
         Task<Order> GetOrderById(int id);
         Task UpdateOrder(Order order);
+        Task DeleteOrder(Order order);
     }
 
     public class OrderService : IOrderService
@@ -33,6 +34,13 @@ namespace NorthWind.Services
         public async Task<Order> GetOrderById(int id)
         {
             return await _dbContext.Orders.FirstOrDefaultAsync(x => x.OrderId == id);
+        }
+
+        public async Task DeleteOrder(Order order)
+        {
+            _dbContext.Orders.Remove(order);
+            await _dbContext.SaveChangesAsync();
+
         }
     }
 
