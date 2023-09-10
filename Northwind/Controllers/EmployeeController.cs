@@ -28,27 +28,17 @@ namespace Northwind.Controllers
         }
 
         [HttpGet("{employeeId}")]
-        public async Task<IActionResult> GetEmployee([FromQuery] string EmployeeId)
+        public async Task<IActionResult> GetEmployee([FromQuery] int EmployeeId)
         {
-            var employee = await _dbContext.Employees.Where(x => x.EmployeeId == int.Parse(EmployeeId)).FirstOrDefaultAsync();
-
+            var employee = await _employeeService.GetEmployee(EmployeeId);
             return Ok(employee);
         }
 
         [HttpPost]
         public async Task<IActionResult> AddEmployee([FromBody] Employee employee)
         {
-            await _dbContext.Employees.AddAsync(employee);
-            var result = await _dbContext.SaveChangesAsync();
-            var isSuccessful = result > 0;
-
-            var resultModel = new
-            {
-                Success = isSuccessful,
-                Message = "Successfully added employee"
-            };
-
-            return Ok(resultModel);
+            var resultmodel = await _employeeService.AddEmployee(employee);
+            return Ok(resultmodel);
         }
 
         [HttpPut("update")]

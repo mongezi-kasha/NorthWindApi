@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using Northwind.Models.Invoices;
 using NorthWind.DAL;
 using NorthWind.Services;
@@ -29,24 +27,15 @@ namespace Northwind.Controllers
         [HttpGet("{invoiceId}")]
         public async Task<IActionResult> GetInvoice([FromQuery] int invoiceId)
         {
-            var invoice = await _dbContext.Invoices.Where(x => x.invoiceId == invoiceId).FirstOrDefaultAsync();
+            var invoice = await _invoiceService.GetInvoice(invoiceId);
             return Ok(invoice);
         }
 
         [HttpPost]
         public async Task<IActionResult> AddInvoce([FromBody] Invoice invoice)
         {
-            await _dbContext.Invoices.AddAsync(invoice);
-            var result = await _dbContext.SaveChangesAsync();
-            var isSuccessfull = result > 0;
-
-            var resultmodel = new
-            {
-                Success = isSuccessfull,
-                Message = "Successfully added invoice"
-            };
-
-            return Ok(resultmodel);
+           var invoices = await _invoiceService.AddInvoce(invoice);
+            return Ok(invoices);
         }
 
         [HttpPut("update")]

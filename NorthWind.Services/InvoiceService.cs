@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NorthWind.DAL;
+using NorthWind.Services.Models;
 
 namespace NorthWind.Services
 {
@@ -9,6 +10,7 @@ namespace NorthWind.Services
         Task <Invoice> GetInvoice(int id);
         Task UpdateInvoice (Invoice invoice);
         Task DeleteInvoice (Invoice invoice);
+        Task<ServiceResponse<bool>> AddInvoce(Invoice invoice);
     }
 
     public class InvoiceService : IInvoiceService
@@ -41,6 +43,20 @@ namespace NorthWind.Services
             _dbContext.Invoices.Remove(invoice);
             await _dbContext.SaveChangesAsync();
 
+        }
+
+        public async Task<ServiceResponse<bool>> AddInvoce(Invoice invoice)
+        {
+            _dbContext.Invoices.Add(invoice);
+            var result = await _dbContext.SaveChangesAsync();
+            var isSuccessful = result > 0;
+
+            var resultModel = new ServiceResponse<bool>
+            {
+                IsSuccessful = isSuccessful,
+                Message = "Successfully added an Invoice"
+            };
+            return resultModel;
         }
     }
 }

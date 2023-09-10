@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NorthWind.DAL;
+using NorthWind.Services.Models;
 
 namespace NorthWind.Services
 {
@@ -9,6 +10,7 @@ namespace NorthWind.Services
         Task<Order> GetOrderById(int id);
         Task UpdateOrder(Order order);
         Task DeleteOrder(Order order);
+        Task<ServiceResponse<bool>> AddOrder(Order order);
     }
 
     public class OrderService : IOrderService
@@ -41,6 +43,21 @@ namespace NorthWind.Services
             _dbContext.Orders.Remove(order);
             await _dbContext.SaveChangesAsync();
 
+        }
+
+        public async Task<ServiceResponse<bool>> AddOrder(Order order)
+        {
+            _dbContext.Orders.Add(order);
+            var result = await _dbContext.SaveChangesAsync();
+            var isSuccessful = result > 0;
+
+            var resultModel = new  ServiceResponse<bool>
+            {
+                IsSuccessful = isSuccessful,
+                Message = "sUCCESSFULLY ADDED AN ODRER"
+            };
+
+            return resultModel;
         }
     }
 

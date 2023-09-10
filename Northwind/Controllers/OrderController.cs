@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Northwind.Models.Order;
 using NorthWind.DAL;
 using NorthWind.Services;
@@ -28,25 +27,16 @@ namespace Northwind.Controllers
         [HttpGet("single")]
         public async Task<IActionResult> GetOrder([FromQuery] string orderId)
         {
-            var order = await _dbContext.Orders.Where(x => x.OrderId == int.Parse(orderId)).FirstOrDefaultAsync();
+            var order = await _orderService.GetAllOrders();
             return Ok(order);
 
         }
 
         [HttpPost("{orderId}")]
-        public async Task<IActionResult> AddOrder([FromBody] Employee order)
+        public async Task<IActionResult> AddOrder([FromBody] Order order)
         {
-            await _dbContext.Employees.AddAsync(order);
-            var result = await _dbContext.SaveChangesAsync();
-            var isSuccessful = result > 0;
-
-            var resultModel = new
-            {
-                Success = isSuccessful,
-                Message = "Successfully added employee"
-            };
-
-            return Ok(resultModel);
+            var orderr = await _orderService.AddOrder(order);
+            return Ok(orderr);
         }
 
         [HttpPut("update")]

@@ -9,7 +9,7 @@ namespace NorthWind.Services
         Task<ServiceResponse<bool>> AddEmployee(Employee employee);
         Task DeleteEmployee(Employee employee);
         Task<ServiceResponse<List<Employee>>> GetAllEmployees();
-        Task<ServiceResponse<Employee>> GetEmployee(int id);
+        Task<Employee> GetEmployee(int id);
         Task UpdateEmployee(Employee employee);
     }
 
@@ -21,10 +21,9 @@ namespace NorthWind.Services
             _dbContext = dbContext;
         }
 
-        public async Task<ServiceResponse<Employee>> GetEmployee(int id)
+        public async Task<Employee> GetEmployee(int id)
         {
-            var result = await _dbContext.Employees.FirstOrDefaultAsync(x => x.EmployeeId == id);
-            return new ServiceResponse<Employee> { Data = result, IsSuccessful = result is null ? false : true };
+            return await _dbContext.Employees.FirstOrDefaultAsync(x => x.EmployeeId == id);
         }
 
         public async Task UpdateEmployee(Employee employee)
