@@ -56,7 +56,7 @@ namespace Northwind.Controllers
         }
 
         [HttpDelete("delete/{id}")]
-        public async Task<IActionResult> DeleteOrder([FromBody] DeleteOrderRequest orderRequest)
+        public async Task<IActionResult> DeleteOrder([FromBody] DeleteRegionRequest orderRequest)
         {
             var order = await _orderService.GetOrderById(orderRequest.OrderID);
             if (order == null)

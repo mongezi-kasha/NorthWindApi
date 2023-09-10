@@ -10,7 +10,8 @@ namespace NorthWind.Services
         Task<List<Region>> GetRegion();
         Task <Region> GetRegionById(int id);
         Task<ServiceResponse<bool>> AddRegion(Region region);
-        //Task UpdateRegion (Region region);
+        Task UpdateRegion(Region region);
+        Task DeleteRegion(Region region);
     }
     public class RegionService : IRegionService
     {
@@ -35,6 +36,12 @@ namespace NorthWind.Services
             return resultModel;
         }
 
+        public async Task DeleteRegion(Region region)
+        {
+            _dbContext.Regions.Remove(region);
+            await _dbContext.SaveChangesAsync();
+        }
+
         public async Task<List<Region>> GetRegion()
         {
             var regions = await _dbContext.Regions.ToListAsync();
@@ -47,9 +54,10 @@ namespace NorthWind.Services
             return regions;
         }
 
-        //public Task UpdateRegion(Region region)
-        //{
-            
-        //}
+        public async Task UpdateRegion(Region region)
+        {
+            _dbContext.Regions.Update(region);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

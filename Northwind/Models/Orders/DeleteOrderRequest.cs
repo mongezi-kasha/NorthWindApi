@@ -1,6 +1,6 @@
 ﻿namespace Northwind.Models.Order
 {
-    public class DeleteOrderRequest
+    public class DeleteRegionRequest
     {
         public string ShipName { get; set; }
         public int OrderID { get; set; }

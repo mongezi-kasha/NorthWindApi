@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Northwind.Models.Region;
 using NorthWind.DAL;
 using NorthWind.Services;
 
@@ -34,6 +35,35 @@ namespace Northwind.Controllers
         {
             var regions = await _regionService.AddRegion(region);
             return Ok(regions);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateRegion([FromBody] UpdateRegionrRequest updateRegionRequest)
+        {
+            var regions = await _regionService.GetRegionById(updateRegionRequest.RegionId);
+            if(regions == null)
+            {
+                return NotFound();
+            }
+
+            regions.RegionDescription = updateRegionRequest.RegionName;
+
+            await _regionService.UpdateRegion(regions);
+
+            return Ok(regions);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteRegion([FromBody] DeleteRegionRequest deleteRegionRequest)
+        {
+            var region = await _regionService.GetRegionById(deleteRegionRequest.RegionID);
+            if(region == null)
+            {
+                return NotFound();
+            }
+
+            await _regionService.DeleteRegion(region);
+            return Ok(region);
         }
     }
 }
