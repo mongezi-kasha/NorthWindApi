@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Northwind.Lib.CommonData;
 using NorthWind.DAL;
 
 namespace NorthWind.Services
@@ -10,16 +11,17 @@ namespace NorthWind.Services
     }
     public class SupplierService : ISupplierService
     {
-        private readonly NorthWindContext _dbContext;
-        public SupplierService(NorthWindContext dbContext)
+        private readonly NorthWindRepository<Supplier> _repo;
+
+        public SupplierService(NorthWindRepository<Supplier> repo)
         {
-            _dbContext = dbContext;
+            _repo = repo;
         }
 
-        public Task<List<Supplier>> GetSupplier()
+        public async Task<List<Supplier>> GetSupplier()
         {
-            var suppliers = _dbContext.Suppliers.ToListAsync();
-            return suppliers;
+            var supplier = await _repo.ListAsync();
+            return supplier;
         }
 
         public Task<Supplier> GetSupplierById(int id)

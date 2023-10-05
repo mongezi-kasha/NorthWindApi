@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Northwind.Lib.CommonData;
 using NorthWind.DAL;
 using NorthWind.Services.Models;
 
@@ -14,16 +15,17 @@ namespace NorthWind.Services
     }
     public class ShipperServices : IShipperServices
     {
-        private readonly NorthWindContext _dbContext;
-        public ShipperServices(NorthWindContext dbContext)
+        private readonly NorthWindRepository<Shipper> _repo;
+
+        public ShipperServices(NorthWindRepository<Shipper> repo)
         {
-            _dbContext = dbContext;
+            _repo = repo;
         }
 
         public async Task<ServiceResponse<bool>> AddShipper(Shipper shipper)
         {
-            _dbContext.Shippers.Add(shipper);
-            var result = await _dbContext.SaveChangesAsync();
+            _repo.AddAsync(shipper);
+            var result = await _repo.SaveChangesAsync();
             var isSuccessful = result > 0;
 
             var resultModel = new ServiceResponse<bool>
@@ -38,26 +40,24 @@ namespace NorthWind.Services
 
         public async Task DeleteShipper(Shipper shipper)
         {
-           _dbContext.Shippers.Remove(shipper);
-            await _dbContext.SaveChangesAsync();
+            await _repo.DeleteAsync(shipper);
+            await _repo.SaveChangesAsync();
         }
 
         public async Task<List<Shipper>> GetShipper()
         {
-            var shipper = await _dbContext.Shippers.ToListAsync();
+            var shipper = await _repo.ListAsync();
             return shipper;
         }
 
         public async Task<Shipper> GetShipperById(int id)
         {
-            var shipper = await _dbContext.Shippers.FirstOrDefaultAsync(x => x.ShipperId == id);
-            return shipper;
+            return await _repo.GetByIdAsync(id);
         }
 
         public async Task UpdateShipper(Shipper shipper)
         {
-            _dbContext.Shippers.Update(shipper);
-            await _dbContext.SaveChangesAsync();
+            await _repo.UpdateAsync(shipper);
         }
     }
 }

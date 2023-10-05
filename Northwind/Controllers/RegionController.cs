@@ -5,7 +5,7 @@ using NorthWind.Services;
 
 namespace Northwind.Controllers
 {
-    [Route("api/[controller")]
+    [Route("api/[Controller]")]
     [ApiController]
     public class RegionController : ControllerBase
     {
@@ -41,7 +41,7 @@ namespace Northwind.Controllers
         public async Task<IActionResult> UpdateRegion([FromBody] UpdateRegionrRequest updateRegionRequest)
         {
             var regions = await _regionService.GetRegionById(updateRegionRequest.RegionId);
-            if(regions == null)
+            if (regions == null)
             {
                 return NotFound();
             }
@@ -57,7 +57,7 @@ namespace Northwind.Controllers
         public async Task<IActionResult> DeleteRegion([FromBody] DeleteRegionRequest deleteRegionRequest)
         {
             var region = await _regionService.GetRegionById(deleteRegionRequest.RegionID);
-            if(region == null)
+            if (region == null)
             {
                 return NotFound();
             }

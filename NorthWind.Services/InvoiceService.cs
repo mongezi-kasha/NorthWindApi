@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Northwind.Lib.CommonData;
 using NorthWind.DAL;
 using NorthWind.Services.Models;
 
@@ -15,40 +16,40 @@ namespace NorthWind.Services
 
     public class InvoiceService : IInvoiceService
     {
-        private readonly NorthWindContext _dbContext;
-        public InvoiceService(NorthWindContext dbContext)
+        private readonly NorthWindRepository<Invoice> _repo;
+
+        public InvoiceService(NorthWindRepository<Invoice> repo)
         {
-            _dbContext = dbContext;
+            _repo = repo;
         }
 
         public async Task<Invoice> GetInvoice(int id)
         {
-            return await _dbContext.Invoices.FirstOrDefaultAsync(x => x.invoiceId == id);
+            return await _repo.GetByIdAsync(id);
         }
 
         public async Task UpdateInvoice(Invoice invoice)
         {
-            _dbContext.Invoices.Update(invoice);
-            await _dbContext.SaveChangesAsync();
+            await _repo.UpdateAsync(invoice);
         }
 
         public async Task<List<Invoice>> GetAllInvoices()
         {
-            var employee = await _dbContext.Invoices.ToListAsync();
-            return employee;
+            var invoices = await _repo.ListAsync();
+            return invoices;
         }
 
         public async Task DeleteInvoice(Invoice invoice)
         {
-            _dbContext.Invoices.Remove(invoice);
-            await _dbContext.SaveChangesAsync();
+            await _repo.DeleteAsync(invoice);
+            await _repo.SaveChangesAsync();
 
         }
 
         public async Task<ServiceResponse<bool>> AddInvoce(Invoice invoice)
         {
-            _dbContext.Invoices.Add(invoice);
-            var result = await _dbContext.SaveChangesAsync();
+            _repo.AddAsync(invoice);
+            var result = await _repo.SaveChangesAsync();
             var isSuccessful = result > 0;
 
             var resultModel = new ServiceResponse<bool>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Northwind.Lib.CommonData;
 using NorthWind.DAL;
 using NorthWind.Services.Models;
 
@@ -15,16 +16,17 @@ namespace NorthWind.Services
     }
     public class RegionService : IRegionService
     {
-        private readonly NorthWindContext _dbContext;
-        public RegionService(NorthWindContext dbContext)
+        private readonly NorthWindRepository<Region> _repo;
+
+        public RegionService(NorthWindRepository<Region> repo)
         {
-            _dbContext = dbContext;
+            _repo = repo;
         }
 
         public async Task<ServiceResponse<bool>> AddRegion(Region region)
         {
-            _dbContext.Regions.Add(region);
-            var result = await _dbContext.SaveChangesAsync();
+            _repo.AddAsync(region);
+            var result = await _repo.SaveChangesAsync();
             var isSuccessfull = result > 0;
 
             var resultModel = new ServiceResponse<bool>
@@ -38,26 +40,24 @@ namespace NorthWind.Services
 
         public async Task DeleteRegion(Region region)
         {
-            _dbContext.Regions.Remove(region);
-            await _dbContext.SaveChangesAsync();
+            await _repo.DeleteAsync(region);
+            await _repo.SaveChangesAsync();
         }
 
         public async Task<List<Region>> GetRegion()
         {
-            var regions = await _dbContext.Regions.ToListAsync();
-            return regions;
+            var region = await _repo.ListAsync();
+            return region;
         }
 
         public async Task<Region> GetRegionById(int id)
         {
-            var regions = await _dbContext.Regions.FirstOrDefaultAsync(x => x.RegionId == id);
-            return regions;
+            return await _repo.GetByIdAsync(id);
         }
 
         public async Task UpdateRegion(Region region)
         {
-            _dbContext.Regions.Update(region);
-            await _dbContext.SaveChangesAsync();
+            await _repo.UpdateAsync(region);
         }
     }
 }

@@ -5,7 +5,7 @@ using NorthWind.Services;
 
 namespace Northwind.Controllers
 {
-    [Route("api/controller")]
+    [Route("api/[Controller]")]
     [ApiController]
     public class ShipperController : ControllerBase
     {
@@ -14,19 +14,19 @@ namespace Northwind.Controllers
         {
             _shipperService = shipperService;
         }
-        
+        [HttpGet]
         public Task<List<Shipper>> GetShipper()
         {
             var shipper = _shipperService.GetShipper();
             return shipper;
         }
-
+        [HttpGet("{id}")]
         public async Task<Shipper> GetShipperById(int id)
         {
             var shipper = await _shipperService.GetShipperById(id);
             return shipper;
         }
-
+        [HttpPut]
         public async Task<IActionResult> UpdateShipper([FromBody] UpdateShipperRequest updateShipperRequest)
         {
             var shipper = await _shipperService.GetShipperById(updateShipperRequest.ShipperId);
@@ -39,6 +39,8 @@ namespace Northwind.Controllers
             await _shipperService.UpdateShipper(shipper);
             return Ok(shipper);
         }
+
+        [HttpDelete]
 
         public async Task<IActionResult> DeleteShipper([FromBody] DeleteShipperRequest deleteShipperRequest)
         {
