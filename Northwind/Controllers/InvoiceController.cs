@@ -34,7 +34,7 @@ namespace Northwind.Controllers
         [HttpPost]
         public async Task<IActionResult> AddInvoce([FromBody] Invoice invoice)
         {
-           var invoices = await _invoiceService.AddInvoce(invoice);
+            var invoices = await _invoiceService.AddInvoce(invoice);
             return Ok(invoices);
         }
 

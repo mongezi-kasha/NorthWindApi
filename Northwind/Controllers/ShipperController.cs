@@ -2,6 +2,7 @@
 using Northwind.Models.Shipper;
 using NorthWind.DAL;
 using NorthWind.Services;
+using NorthWind.Services.Models;
 
 namespace Northwind.Controllers
 {
@@ -15,7 +16,7 @@ namespace Northwind.Controllers
             _shipperService = shipperService;
         }
         [HttpGet]
-        public Task<List<Shipper>> GetShipper()
+        public Task<ServiceResponse<List<Shipper>>> GetShipper()
         {
             var shipper = _shipperService.GetShipper();
             return shipper;

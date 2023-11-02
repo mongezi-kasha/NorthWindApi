@@ -1,4 +1,5 @@
 ﻿using Ardalis.Specification;
+using Ardalis.Specification.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Lib.CommonData;
 using NorthWind.DAL;
@@ -9,7 +10,7 @@ namespace NorthWind.Services
 {
     public interface IOrderService
     {
-        Task<List<Order>> GetAllOrders();
+        Task<ServiceResponse<List<Order>>> GetAllOrders();
         Task<Order> GetOrderById(int id);
         Task UpdateOrder(Order order);
         Task DeleteOrder(Order order);
@@ -18,51 +19,52 @@ namespace NorthWind.Services
 
     public class OrderService : IOrderService
     {
-        private readonly NorthWindRepository<Order> _repo;
+        private readonly NorthWindContext _dbContext;
 
-        public OrderService(NorthWindRepository<Order> repo)
+        public OrderService(NorthWindContext dbContext)
         {
-            _repo = repo;
+            _dbContext = dbContext;
         }
 
-        public async Task<List<Order>> GetAllOrders()
+        public async Task<ServiceResponse<List<Order>>> GetAllOrders()
         {
-            var orders = await _repo.ListAsync();
-            return orders;
+            var orders = await _dbContext.Orders.ToListAsync();
+            return new ServiceResponse<List<Order>> { Data = orders, IsSuccessful = true, Message = "Success" };
         }
 
         public async Task UpdateOrder(Order order)
         {
-           await _repo.UpdateAsync(order);
+            _dbContext.Orders.Update(order);
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task<Order> GetOrderById(int id)
         {
-            return await _repo.GetByIdAsync(id);
+            return await _dbContext.Orders.FirstOrDefaultAsync(x => x.OrderId == id);
         }
 
         public async Task<Order> GetOrderByCustomerId(string customerId)
         {
-            return await _repo.FirstOrDefaultAsync(new Specs.OrderByCustomerIdSpec(customerId));
+            return await _dbContext.Orders.FirstOrDefaultAsync(x => x.CustomerId == customerId);
         }
 
         public async Task DeleteOrder(Order order)
         {
-            await _repo.DeleteAsync(order);
-            await _repo.SaveChangesAsync();
+            _dbContext.Orders.Update(order);
+            await _dbContext.SaveChangesAsync();
 
         }
 
         public async Task<ServiceResponse<bool>> AddOrder(Order order)
         {
-            _repo.AddAsync(order);
-            var result = await _repo.SaveChangesAsync();
+            _dbContext.Orders.AddAsync(order);
+            var result = await _dbContext.SaveChangesAsync();
             var isSuccessful = result > 0;
 
-            var resultModel = new  ServiceResponse<bool>
+            var resultModel = new ServiceResponse<bool>
             {
                 IsSuccessful = isSuccessful,
-                Message = "sUCCESSFULLY ADDED AN ODRER"
+                Message = "Successfully added Order"
             };
 
             return resultModel;

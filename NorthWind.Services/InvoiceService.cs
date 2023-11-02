@@ -7,49 +7,49 @@ namespace NorthWind.Services
 {
     public interface IInvoiceService
     {
-        Task<List<Invoice>> GetAllInvoices();
-        Task <Invoice> GetInvoice(int id);
-        Task UpdateInvoice (Invoice invoice);
-        Task DeleteInvoice (Invoice invoice);
+        Task<ServiceResponse<List<Invoice>>> GetAllInvoices();
+        Task<Invoice> GetInvoice(int id);
+        Task UpdateInvoice(Invoice invoice);
+        Task DeleteInvoice(Invoice invoice);
         Task<ServiceResponse<bool>> AddInvoce(Invoice invoice);
     }
 
     public class InvoiceService : IInvoiceService
     {
-        private readonly NorthWindRepository<Invoice> _repo;
+        private readonly NorthWindContext _dbContext;
 
-        public InvoiceService(NorthWindRepository<Invoice> repo)
+        public InvoiceService(NorthWindContext dbContext)
         {
-            _repo = repo;
+            _dbContext = dbContext;
         }
 
         public async Task<Invoice> GetInvoice(int id)
         {
-            return await _repo.GetByIdAsync(id);
+            return await _dbContext.Invoices.FirstOrDefaultAsync(x => x.invoiceId == id);
         }
 
         public async Task UpdateInvoice(Invoice invoice)
         {
-            await _repo.UpdateAsync(invoice);
+            _dbContext.Invoices.Update(invoice);
+            await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<List<Invoice>> GetAllInvoices()
+        public async Task<ServiceResponse<List<Invoice>>> GetAllInvoices()
         {
-            var invoices = await _repo.ListAsync();
-            return invoices;
+            var invoices = await _dbContext.Invoices.ToListAsync();
+            return new ServiceResponse<List<Invoice>> { Data = invoices, IsSuccessful = true, Message = "Success" };
         }
 
         public async Task DeleteInvoice(Invoice invoice)
         {
-            await _repo.DeleteAsync(invoice);
-            await _repo.SaveChangesAsync();
-
+            _dbContext.Invoices.Remove(invoice);
+                await _dbContext.SaveChangesAsync();
         }
 
         public async Task<ServiceResponse<bool>> AddInvoce(Invoice invoice)
         {
-            _repo.AddAsync(invoice);
-            var result = await _repo.SaveChangesAsync();
+            _dbContext.Invoices.Add(invoice);
+            var result = await _dbContext.SaveChangesAsync();
             var isSuccessful = result > 0;
 
             var resultModel = new ServiceResponse<bool>
@@ -57,6 +57,7 @@ namespace NorthWind.Services
                 IsSuccessful = isSuccessful,
                 Message = "Successfully added an Invoice"
             };
+
             return resultModel;
         }
     }

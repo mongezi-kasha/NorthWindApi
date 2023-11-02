@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Ardalis.Specification.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Northwind.Lib.CommonData;
 using NorthWind.DAL;
 using NorthWind.Services.Models;
@@ -7,7 +8,7 @@ namespace NorthWind.Services
 {
     public interface IShipperServices
     {
-        Task<List<Shipper>> GetShipper();
+        Task<ServiceResponse<List<Shipper>>> GetShipper();
         Task <Shipper> GetShipperById(int id);
         Task UpdateShipper (Shipper shipper); 
         Task DeleteShipper(Shipper shipper);
@@ -15,49 +16,49 @@ namespace NorthWind.Services
     }
     public class ShipperServices : IShipperServices
     {
-        private readonly NorthWindRepository<Shipper> _repo;
+        private readonly NorthWindContext _dbContext;
 
-        public ShipperServices(NorthWindRepository<Shipper> repo)
+        public ShipperServices(NorthWindContext dbContext)
         {
-            _repo = repo;
+            _dbContext = dbContext;
         }
 
         public async Task<ServiceResponse<bool>> AddShipper(Shipper shipper)
         {
-            _repo.AddAsync(shipper);
-            var result = await _repo.SaveChangesAsync();
+            _dbContext.Shippers.AddAsync(shipper);
+            var result = await _dbContext.SaveChangesAsync();
             var isSuccessful = result > 0;
 
             var resultModel = new ServiceResponse<bool>
             {
                 IsSuccessful = isSuccessful,
-                Message = "Added Shipper"
+                Message = "Successfully added a Shipper"
             };
-
-            return resultModel;
             
+            return resultModel;
         }
 
         public async Task DeleteShipper(Shipper shipper)
         {
-            await _repo.DeleteAsync(shipper);
-            await _repo.SaveChangesAsync();
+             _dbContext.Shippers.Remove(shipper);
+            await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<List<Shipper>> GetShipper()
+        public async Task<ServiceResponse<List<Shipper>>> GetShipper()
         {
-            var shipper = await _repo.ListAsync();
-            return shipper;
+            var employees = await _dbContext.Shippers.ToListAsync();
+            return new ServiceResponse<List<Shipper>> { Data = employees, IsSuccessful = true, Message = "Success" };
         }
 
         public async Task<Shipper> GetShipperById(int id)
         {
-            return await _repo.GetByIdAsync(id);
+            return await _dbContext.Shippers.FirstOrDefaultAsync(x => x.ShipperId == id);
         }
 
         public async Task UpdateShipper(Shipper shipper)
         {
-            await _repo.UpdateAsync(shipper);
+            _dbContext.Shippers.Update(shipper);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

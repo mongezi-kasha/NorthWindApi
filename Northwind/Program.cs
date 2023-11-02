@@ -24,6 +24,8 @@ namespace Northwind
             builder.Services.AddScoped<IEmployeeService, EmployeeService>();
             builder.Services.AddScoped<IInvoiceService, InvoiceService>();
             builder.Services.AddScoped<IOrderService, OrderService>();
+            builder.Services.AddScoped<IShipperServices, ShipperServices>();
+            builder.Services.AddScoped<ISupplierService, SupplierService>();
 
             var app = builder.Build();
 
