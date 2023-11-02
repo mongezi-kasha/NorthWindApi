@@ -1,11 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NorthWind.DAL;
+using NorthWind.Services.Models;
 
 namespace NorthWind.Services
 {
     public interface IEmployeeService
     {
-        Task<List<Employee>> GetAllEmployees();
+        Task<ServiceResponse<bool>> AddEmployee(Employee employee);
+        Task DeleteEmployee(Employee employee);
+        Task<ServiceResponse<List<Employee>>> GetAllEmployees();
+        Task<Employee> GetEmployee(int id);
+        Task UpdateEmployee(Employee employee);
     }
 
     public class EmployeeService : IEmployeeService
@@ -16,28 +21,44 @@ namespace NorthWind.Services
             _dbContext = dbContext;
         }
 
-        public async Task<List<Employee>> GetAllEmployees()
+        public async Task<Employee> GetEmployee(int id)
+        {
+            return await _dbContext.Employees.FirstOrDefaultAsync(x => x.EmployeeId == id);
+        }
+
+        public async Task UpdateEmployee(Employee employee)
+        {
+            _dbContext.Employees.Update(employee);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteEmployee(Employee employee)
+        {
+            _dbContext.Employees.Remove(employee);
+            await _dbContext.SaveChangesAsync();
+
+        }
+
+        public async Task<ServiceResponse<List<Employee>>> GetAllEmployees()
         {
             var employees = await _dbContext.Employees.ToListAsync();
 
-            return employees;
+            return new ServiceResponse<List<Employee>> { Data = employees, IsSuccessful = true, Message = "Success" };
         }
-    }
 
-    public class DummyEmployeeService : IEmployeeService
-    {
-        public Task<List<Employee>> GetAllEmployees()
+        public async Task<ServiceResponse<bool>> AddEmployee(Employee employee)
         {
-            var list = new List<Employee>();
-            var employee = new Employee
+            _dbContext.Employees.Add(employee);
+            var result = await _dbContext.SaveChangesAsync();
+            var isSuccessful = result > 0;
+
+            var resultModel = new ServiceResponse<bool>
             {
-                FirstName = "Mongezi",
-                LastName = "Kasha"
+                IsSuccessful = isSuccessful,
+                Message = "Successfully added employee"
             };
 
-            list.Add(employee);
-            return Task.FromResult(list);
-            
+            return resultModel;
         }
     }
 }

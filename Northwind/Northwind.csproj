@@ -17,4 +17,10 @@
     <ProjectReference Include="..\NorthWind.Services\NorthWind.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Region\" />
+    <Folder Include="Models\Shipper\" />
+    <Folder Include="Models\Supplier\" />
+  </ItemGroup>
+
 </Project>
