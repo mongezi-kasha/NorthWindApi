@@ -18,6 +18,27 @@
           "Northwind.dll": {}
         }
       },
+      "Ardalis.Specification/7.0.0": {
+        "runtime": {
+          "lib/net6.0/Ardalis.Specification.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
+          }
+        }
+      },
+      "Ardalis.Specification.EntityFrameworkCore/7.0.0": {
+        "dependencies": {
+          "Ardalis.Specification": "7.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.9",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.9"
+        },
+        "runtime": {
+          "lib/net6.0/Ardalis.Specification.EntityFrameworkCore.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
+          }
+        }
+      },
       "Azure.Core/1.24.0": {
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
@@ -670,7 +691,20 @@
           "NorthWind.DAL.dll": {}
         }
       },
+      "Northwind.Lib/1.0.0": {
+        "dependencies": {
+          "Ardalis.Specification": "7.0.0",
+          "Ardalis.Specification.EntityFrameworkCore": "7.0.0",
+          "NorthWind.DAL": "1.0.0"
+        },
+        "runtime": {
+          "Northwind.Lib.dll": {}
+        }
+      },
       "NorthWind.Services/1.0.0": {
+        "dependencies": {
+          "Northwind.Lib": "1.0.0"
+        },
         "runtime": {
           "NorthWind.Services.dll": {}
         }
@@ -682,6 +716,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Ardalis.Specification/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e2bd6AN7V0FGOgmCq+srEPmz03PEIkESoyG/QKHxX76ezI13COvi/2WX09f1wLFKdex9gVqxCtNSBH9pvYFUVQ==",
+      "path": "ardalis.specification/7.0.0",
+      "hashPath": "ardalis.specification.7.0.0.nupkg.sha512"
+    },
+    "Ardalis.Specification.EntityFrameworkCore/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-J8eHtJLCVMARRYC6iy88GHZ2ZMGLv204ygWBNbEULUY2mv4xqRW6qCz9CEv/FeFiS6enZIpPTKbOijk/4wNE/A==",
+      "path": "ardalis.specification.entityframeworkcore/7.0.0",
+      "hashPath": "ardalis.specification.entityframeworkcore.7.0.0.nupkg.sha512"
     },
     "Azure.Core/1.24.0": {
       "type": "package",
@@ -1160,6 +1208,11 @@
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
     },
     "NorthWind.DAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Northwind.Lib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

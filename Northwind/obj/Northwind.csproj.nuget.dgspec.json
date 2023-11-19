@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Dummy Projects\\NorthWindApi\\Northwind\\Northwind.csproj": {}
+    "C:\\Users\\monge\\source\\repos\\NorthWindApi\\Northwind\\Northwind.csproj": {}
   },
   "projects": {
-    "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj": {
+    "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj",
         "projectName": "NorthWind.DAL",
-        "projectPath": "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj",
-        "packagesPath": "C:\\Users\\mongezi.kasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\obj\\",
+        "projectPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj",
+        "packagesPath": "C:\\Users\\monge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mongezi.kasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\monge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,8 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nexus:8080/nexus/service/local/nuget/TPD": {},
-          "http://nexus:8080/nexus/service/local/nuget/nuget-public/": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,7 +66,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -77,25 +76,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.315\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Dummy Projects\\NorthWindApi\\NorthWind.Services\\NorthWind.Services.csproj": {
+    "C:\\Users\\monge\\source\\repos\\NorthWindApi\\Northwind.Lib\\Northwind.Lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dummy Projects\\NorthWindApi\\NorthWind.Services\\NorthWind.Services.csproj",
-        "projectName": "NorthWind.Services",
-        "projectPath": "C:\\Dummy Projects\\NorthWindApi\\NorthWind.Services\\NorthWind.Services.csproj",
-        "packagesPath": "C:\\Users\\mongezi.kasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Dummy Projects\\NorthWindApi\\NorthWind.Services\\obj\\",
+        "projectUniqueName": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\Northwind.Lib\\Northwind.Lib.csproj",
+        "projectName": "Northwind.Lib",
+        "projectPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\Northwind.Lib\\Northwind.Lib.csproj",
+        "packagesPath": "C:\\Users\\monge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\Northwind.Lib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mongezi.kasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\monge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -104,16 +102,89 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nexus:8080/nexus/service/local/nuget/TPD": {},
-          "http://nexus:8080/nexus/service/local/nuget/nuget-public/": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj": {
-                "projectPath": "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj"
+              "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj": {
+                "projectPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Ardalis.Specification": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Ardalis.Specification.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.Services\\NorthWind.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.Services\\NorthWind.Services.csproj",
+        "projectName": "NorthWind.Services",
+        "projectPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.Services\\NorthWind.Services.csproj",
+        "packagesPath": "C:\\Users\\monge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\monge\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\monge\\source\\repos\\NorthWindApi\\Northwind.Lib\\Northwind.Lib.csproj": {
+                "projectPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\Northwind.Lib\\Northwind.Lib.csproj"
               }
             }
           }
@@ -133,7 +204,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -142,25 +214,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.315\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Dummy Projects\\NorthWindApi\\Northwind\\Northwind.csproj": {
+    "C:\\Users\\monge\\source\\repos\\NorthWindApi\\Northwind\\Northwind.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dummy Projects\\NorthWindApi\\Northwind\\Northwind.csproj",
+        "projectUniqueName": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\Northwind\\Northwind.csproj",
         "projectName": "Northwind",
-        "projectPath": "C:\\Dummy Projects\\NorthWindApi\\Northwind\\Northwind.csproj",
-        "packagesPath": "C:\\Users\\mongezi.kasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Dummy Projects\\NorthWindApi\\Northwind\\obj\\",
+        "projectPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\Northwind\\Northwind.csproj",
+        "packagesPath": "C:\\Users\\monge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\Northwind\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mongezi.kasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\monge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -169,19 +240,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nexus:8080/nexus/service/local/nuget/TPD": {},
-          "http://nexus:8080/nexus/service/local/nuget/nuget-public/": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj": {
-                "projectPath": "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj"
+              "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj": {
+                "projectPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj"
               },
-              "C:\\Dummy Projects\\NorthWindApi\\NorthWind.Services\\NorthWind.Services.csproj": {
-                "projectPath": "C:\\Dummy Projects\\NorthWindApi\\NorthWind.Services\\NorthWind.Services.csproj"
+              "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.Services\\NorthWind.Services.csproj": {
+                "projectPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.Services\\NorthWind.Services.csproj"
               }
             }
           }
@@ -215,7 +285,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -227,7 +298,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.315\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

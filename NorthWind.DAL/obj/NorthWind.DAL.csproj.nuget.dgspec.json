@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj": {}
+    "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj": {
+    "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj",
         "projectName": "NorthWind.DAL",
-        "projectPath": "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj",
-        "packagesPath": "C:\\Users\\mongezi.kasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Dummy Projects\\NorthWindApi\\NorthWind.DAL\\obj\\",
+        "projectPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\NorthWind.DAL.csproj",
+        "packagesPath": "C:\\Users\\monge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\monge\\source\\repos\\NorthWindApi\\NorthWind.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mongezi.kasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\monge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,8 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nexus:8080/nexus/service/local/nuget/TPD": {},
-          "http://nexus:8080/nexus/service/local/nuget/nuget-public/": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,7 +66,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -77,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.315\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

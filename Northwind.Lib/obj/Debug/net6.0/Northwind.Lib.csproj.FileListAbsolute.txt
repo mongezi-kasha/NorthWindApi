@@ -1,0 +1,15 @@
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\bin\Debug\net6.0\Northwind.Lib.deps.json
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\bin\Debug\net6.0\Northwind.Lib.dll
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\bin\Debug\net6.0\Northwind.Lib.pdb
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\obj\Debug\net6.0\Northwind.Lib.csproj.AssemblyReference.cache
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\obj\Debug\net6.0\Northwind.Lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\obj\Debug\net6.0\Northwind.Lib.AssemblyInfoInputs.cache
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\obj\Debug\net6.0\Northwind.Lib.AssemblyInfo.cs
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\obj\Debug\net6.0\Northwind.Lib.csproj.CoreCompileInputs.cache
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\obj\Debug\net6.0\Northwind.Lib.dll
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\obj\Debug\net6.0\refint\Northwind.Lib.dll
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\obj\Debug\net6.0\Northwind.Lib.pdb
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\obj\Debug\net6.0\ref\Northwind.Lib.dll
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\bin\Debug\net6.0\NorthWind.DAL.dll
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\bin\Debug\net6.0\NorthWind.DAL.pdb
+C:\Users\monge\source\repos\NorthWindApi\Northwind.Lib\obj\Debug\net6.0\Northwind.Lib.csproj.CopyComplete
